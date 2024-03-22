@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://osde.com.ar/services/administracion/empleado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Empleado" targetNamespace="http://osde.com.ar/services/administracion/empleado">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://empleado.entities.osde.com.ar" xmlns:ns2="http://intranet.osde/" elementFormDefault="unqualified" targetNamespace="http://osde.com.ar/services/administracion/empleado" version="1.0">
+            <xs:import namespace="http://empleado.entities.osde.com.ar"/>
+            <xs:element name="getEmpleadoById" type="tns:getEmpleadoById"/>
+            <xs:element name="getEmpleadoByIdResponse" type="tns:getEmpleadoByIdResponse"/>
+            <xs:element name="getEmpleadoByUsername" type="tns:getEmpleadoByUsername"/>
+            <xs:element name="getEmpleadoByUsernameResponse" type="tns:getEmpleadoByUsernameResponse"/>
+            <xs:element name="searchEmpleados" type="tns:searchEmpleados"/>
+            <xs:element name="searchEmpleadosResponse" type="tns:searchEmpleadosResponse"/>
+            <xs:element name="getPuestosPrincipalesDeUnidad" type="tns:getPuestosPrincipalesDeUnidad"/>
+            <xs:element name="getPuestosPrincipalesDeUnidadResponse" type="tns:getPuestosPrincipalesDeUnidadResponse"/>
+            <xs:element name="getPuestosDependientesDePuesto" type="tns:getPuestosDependientesDePuesto"/>
+            <xs:element name="getPuestosDependientesDePuestoResponse" type="tns:getPuestosDependientesDePuestoResponse"/>
+            <xs:element name="ObtenerDatosPersonalesEMail" type="tns:ObtenerDatosPersonalesEMail"/>
+            <xs:element name="ObtenerDatosPersonalesEMailResponse" type="tns:ObtenerDatosPersonalesEMailResponse"/>
+            <xs:element name="ObtenerPermisosConEMail" type="tns:ObtenerPermisosConEMail"/>
+            <xs:element name="ObtenerPermisosConEMailResponse" type="tns:ObtenerPermisosConEMailResponse"/>
+            <xs:element name="getUnidadesPrimerNivelJerarquico" type="tns:getUnidadesPrimerNivelJerarquico"/>
+            <xs:element name="getUnidadesPrimerNivelJerarquicoResponse" type="tns:getUnidadesPrimerNivelJerarquicoResponse"/>
+            <xs:element name="getEmpleadoByEmail" type="tns:getEmpleadoByEmail"/>
+            <xs:element name="getEmpleadoByEmailResponse" type="tns:getEmpleadoByEmailResponse"/>
+            <xs:complexType name="getUnidadesPrimerNivelJerarquico">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="empreNro" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="uniNro" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getUnidadesPrimerNivelJerarquicoResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="UnidadesOrganizativas" type="ns1:unidadesOrganizativas"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPuestosDependientesDePuesto">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="numeroEmpresa" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="numeroUnidadOrganizativa" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="numeroPuesto" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="filiales" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPuestosDependientesDePuestoResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="PuestosFuncionales" type="ns1:puestosFuncionales"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ObtenerPermisosConEMail">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" maxOccurs="1" name="aplicacion" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" maxOccurs="1" name="email" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ObtenerPermisosConEMailResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" maxOccurs="1" name="ObtenerPermisosConEMailResponse" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ObtenerDatosPersonalesEMail">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" maxOccurs="1" name="email" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ObtenerDatosPersonalesEMailResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" maxOccurs="1" name="ObtenerDatosPersonalesEMailResponse" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPuestosPrincipalesDeUnidad">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="numeroEmpresa" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="numeroUnidadOrganizativa" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="filiales" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPuestosPrincipalesDeUnidadResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="PuestosFuncionales" type="ns1:puestosFuncionales"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="searchEmpleados">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="empleadoFilter" type="ns1:empleadoFilter"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="searchEmpleadosResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="SearchResult" type="tns:searchResult"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="searchResult">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="list" nillable="true" type="xs:anyType"/>
+                    <xs:element minOccurs="0" name="totalResults" type="xs:int"/>
+                    <xs:element minOccurs="0" name="truncated" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoById">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="idEmpleado" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoByIdResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="Empleado" type="ns1:empleado"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoByUsername">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="username" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoByUsernameResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="Empleado" type="ns1:empleado"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoByEmail">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="email" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getEmpleadoByEmailResponse">
+                <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="Empleado" type="ns1:empleado"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://osde.com.ar/services/administracion/empleado" xmlns:tns="http://empleado.entities.osde.com.ar" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://empleado.entities.osde.com.ar" version="1.0">
+            <xs:import namespace="http://osde.com.ar/services/administracion/empleado"/>
+            <xs:complexType name="empleadoFilter">
+                <xs:sequence>
+                    <xs:element name="idCap" type="xs:int"/>
+                    <xs:element name="idFilial" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="empleadoResumen">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="idCap" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombreUsuario" type="xs:string"/>
+                    <xs:element name="idEmpleado" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+                    <xs:element name="prefijo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="puestosDeTrabajo" type="ns1:searchResult"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="responsables" nillable="true" type="tns:responsable"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="responsable">
+                <xs:sequence>
+                    <xs:element name="idresponsable" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombrezona" type="xs:string"/>
+                    <xs:element name="zona" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="puestoDeTrabajo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="empreNro" type="xs:int"/>
+                    <xs:element minOccurs="0" name="uniNro" type="xs:int"/>
+                    <xs:element minOccurs="0" name="puestoNro" type="xs:int"/>
+                    <xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="idCap" type="xs:int"/>
+                    <xs:element minOccurs="0" name="idFilial" type="xs:int"/>
+                    <xs:element minOccurs="0" name="puestoCodi" type="xs:string"/>
+                    <xs:element minOccurs="0" name="esPuestoPrincipal" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rutaCompleta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descripcionFilial" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descripionCAP" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="puestoFuncional">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="numeroEmpresa" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroUnidadOrganizativa" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroPuesto" type="xs:int"/>
+                    <xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codigoPuesto" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rutaCompleta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numeroEmpresaPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroUnidadOrganizativaPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroPuestoPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="campoJerarquico" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cantidadDependientes" type="xs:int"/>
+                    <xs:element minOccurs="0" name="puestoUnico" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="admiteCAPs" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="admiteFiliales" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="unidadOrganizativa">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroEmpresa" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroUnidadOrganizativa" type="xs:int"/>
+                    <xs:element minOccurs="0" name="codigoUnidadOrganizativa" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numeroEmpresaPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroUnidadOrganizativaPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="numeroPuestoPadre" type="xs:int"/>
+                    <xs:element minOccurs="0" name="campoJerarquico" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rutaCompleta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cantidadDependientes" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="puestosFuncionales">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="puestosFuncionales" type="tns:puestoFuncional"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="unidadesOrganizativas">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="unidadesOrganizativas" type="tns:unidadOrganizativa"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="empleado">
+                <xs:sequence>
+                    <xs:element name="nombres" type="xs:string"/>
+                    <xs:element name="apellidos" type="xs:string"/>
+                    <xs:element name="baja" type="xs:int"/>
+                    <xs:element name="sexo" type="xs:string"/>
+                    <xs:element name="codFilial" type="xs:int"/>
+                    <xs:element name="codCAP" type="xs:int"/>
+                    <xs:element name="IDCap" type="xs:int"/>
+                    <xs:element minOccurs="0" name="afectacion" type="xs:string"/>
+                    <xs:element minOccurs="0" name="celularLaboral" type="xs:string"/>
+                    <xs:element minOccurs="0" name="email" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="fechaUltimaActualizacion" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="idEmpleado" type="xs:string"/>
+                    <xs:element name="interno" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombreUsuario" type="xs:string"/>
+                    <xs:element minOccurs="0" name="piso" type="xs:string"/>
+                    <xs:element name="prefijo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="puestosDeTrabajo" type="ns1:searchResult"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="responsables" nillable="true" type="tns:responsable"/>
+                    <xs:element minOccurs="0" name="telefonoPersonal" type="xs:string"/>
+                    <xs:element name="descripcionFilial" type="xs:string"/>
+                    <xs:element name="descripionCAP" type="xs:string"/>
+                    <xs:element name="direccionCAP" type="xs:string"/>
+                    <xs:element name="direccionFilial" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getUnidadesPrimerNivelJerarquico">
+        <wsdl:part name="parameters" element="tns:getUnidadesPrimerNivelJerarquico">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUnidadesPrimerNivelJerarquicoResponse">
+        <wsdl:part name="parameters" element="tns:getUnidadesPrimerNivelJerarquicoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoByIdResponse">
+        <wsdl:part name="parameters" element="tns:getEmpleadoByIdResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPuestosPrincipalesDeUnidadResponse">
+        <wsdl:part name="parameters" element="tns:getPuestosPrincipalesDeUnidadResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPuestosPrincipalesDeUnidad">
+        <wsdl:part name="parameters" element="tns:getPuestosPrincipalesDeUnidad">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPuestosDependientesDePuestoResponse">
+        <wsdl:part name="parameters" element="tns:getPuestosDependientesDePuestoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPuestosDependientesDePuesto">
+        <wsdl:part name="parameters" element="tns:getPuestosDependientesDePuesto">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ObtenerDatosPersonalesEMailResponse">
+        <wsdl:part name="parameters" element="tns:ObtenerDatosPersonalesEMailResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ObtenerDatosPersonalesEMail">
+        <wsdl:part name="parameters" element="tns:ObtenerDatosPersonalesEMail">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ObtenerPermisosConEMailResponse">
+        <wsdl:part name="parameters" element="tns:ObtenerPermisosConEMailResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ObtenerPermisosConEMail">
+        <wsdl:part name="parameters" element="tns:ObtenerPermisosConEMail">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="searchEmpleados">
+        <wsdl:part name="parameters" element="tns:searchEmpleados">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="searchEmpleadosResponse">
+        <wsdl:part name="parameters" element="tns:searchEmpleadosResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoById">
+        <wsdl:part name="parameters" element="tns:getEmpleadoById">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoByUsername">
+        <wsdl:part name="parameters" element="tns:getEmpleadoByUsername">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoByUsernameResponse">
+        <wsdl:part name="parameters" element="tns:getEmpleadoByUsernameResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoByEmail">
+        <wsdl:part name="parameters" element="tns:getEmpleadoByEmail">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEmpleadoByEmailResponse">
+        <wsdl:part name="parameters" element="tns:getEmpleadoByEmailResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="Empleado">
+        <wsdl:operation name="getUnidadesPrimerNivelJerarquico">
+            <wsdl:input name="getUnidadesPrimerNivelJerarquico" message="tns:getUnidadesPrimerNivelJerarquico">
+            </wsdl:input>
+            <wsdl:output name="getUnidadesPrimerNivelJerarquicoResponse" message="tns:getUnidadesPrimerNivelJerarquicoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="searchEmpleados">
+            <wsdl:input name="searchEmpleados" message="tns:searchEmpleados">
+            </wsdl:input>
+            <wsdl:output name="searchEmpleadosResponse" message="tns:searchEmpleadosResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoById">
+            <wsdl:input name="getEmpleadoById" message="tns:getEmpleadoById">
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByIdResponse" message="tns:getEmpleadoByIdResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoByUsername">
+            <wsdl:input name="getEmpleadoByUsername" message="tns:getEmpleadoByUsername">
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByUsernameResponse" message="tns:getEmpleadoByUsernameResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ObtenerPermisosConEMail">
+            <wsdl:input name="ObtenerPermisosConEMail" message="tns:ObtenerPermisosConEMail">
+            </wsdl:input>
+            <wsdl:output name="ObtenerPermisosConEMailResponse" message="tns:ObtenerPermisosConEMailResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ObtenerDatosPersonalesEMail">
+            <wsdl:input name="ObtenerDatosPersonalesEMail" message="tns:ObtenerDatosPersonalesEMail">
+            </wsdl:input>
+            <wsdl:output name="ObtenerDatosPersonalesEMailResponse" message="tns:ObtenerDatosPersonalesEMailResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPuestosPrincipalesDeUnidad">
+            <wsdl:input name="getPuestosPrincipalesDeUnidad" message="tns:getPuestosPrincipalesDeUnidad">
+            </wsdl:input>
+            <wsdl:output name="getPuestosPrincipalesDeUnidadResponse" message="tns:getPuestosPrincipalesDeUnidadResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPuestosDependientesDePuesto">
+            <wsdl:input name="getPuestosDependientesDePuesto" message="tns:getPuestosDependientesDePuesto">
+            </wsdl:input>
+            <wsdl:output name="getPuestosDependientesDePuestoResponse" message="tns:getPuestosDependientesDePuestoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoByEmail">
+            <wsdl:input name="getEmpleadoByEmail" message="tns:getEmpleadoByEmail">
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByEmailResponse" message="tns:getEmpleadoByEmailResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EmpleadoSoapBinding" type="tns:Empleado">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getUnidadesPrimerNivelJerarquico">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUnidadesPrimerNivelJerarquico">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUnidadesPrimerNivelJerarquicoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPuestosPrincipalesDeUnidad">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getPuestosPrincipalesDeUnidad">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getPuestosPrincipalesDeUnidadResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPuestosDependientesDePuesto">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getPuestosDependientesDePuesto">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getPuestosDependientesDePuestoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ObtenerPermisosConEMail">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="ObtenerPermisosConEMail">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ObtenerPermisosConEMailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ObtenerDatosPersonalesEMail">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="ObtenerDatosPersonalesEMail">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ObtenerDatosPersonalesEMailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="searchEmpleados">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="searchEmpleados">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="searchEmpleadosResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoById">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getEmpleadoById">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByIdResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoByUsername">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getEmpleadoByUsername">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByUsernameResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpleadoByEmail">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getEmpleadoByEmail">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getEmpleadoByEmailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Empleado">
+        <wsdl:port name="EmpleadoPort" binding="tns:EmpleadoSoapBinding">
+            <soap:address location="http://testesb.osde.ar/Empleado/Empleado/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
